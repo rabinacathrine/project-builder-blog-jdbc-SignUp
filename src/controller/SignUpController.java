@@ -40,6 +40,21 @@ public class SignUpController extends HttpServlet {
 		LocalDate date= LocalDate.now(); // Java 8 Time API used to get system date and time at a particular instance
 		
 		// Fill your code here
+		User user = new User();
+		//UserDAO ud = new UserDAO();
+		user.setEmail(email);
+		user.setPassword(password);
+//		user.setConfirmpassword(confirmPassword);
+		user.setDate(date);
+		UserDAO userdao=new UserDAO();
+		
+		int checkUser=0;
+		try {
+			checkUser = userdao.signUp(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		if(checkUser!=0)
